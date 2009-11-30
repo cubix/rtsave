@@ -1,0 +1,19 @@
+Copyright 2003, Cubix <cubix@pobox.com>
+
+rtsave - Writes current Solaris routing table to shell script for boot.
+
+It's easy to make changes to the static routes on a systems and forget to
+make the corresponding changes in the boot script, or you may make an error
+when updating the file. This script ensures that that the active routing table
+and the boot script are in sync. It also allows for backup versions to be made.
+
+Usage: rtsave [-f <filename> ] [-r <symlink> ] [-BFds]
+Options:
+      -f <filename>   - shell script that is created
+      -r <link>       - symlink used if -B is specified
+      -d              - do NOT save default (e.g. if defaultrouter file
+                      is used instead
+      -B              - creates new time-stamped file and updates symlink
+                      in rc2.d directory (or wherever specified)
+      -F              - force old file to be overwritten
+      -s              - create symlink (implied by -B)
